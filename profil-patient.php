@@ -59,9 +59,9 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 <?php
 if($rdv){?>
  <p>Rendez-vous le <?= $rdv['dateHour'];?></p>
- <form method="post" action="">
-    <a href="supprimer-rdv.php?id=<?=$patient['id'];?>"><button type="submit">Annuler le rendez-vous</button></a>
-</form>
+ 
+    <a href="supprimer-rdv.php?id=<?=$rdv['id'];?>"><button>Annuler le rendez-vous</button></a>
+
 <?php
 }
 ?>

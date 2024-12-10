@@ -35,7 +35,13 @@ try {
 </head>
 
 <body>
-    <h1>Liste des patients</h1>
+    <div style="display: flex; align-items:center; gap:30px">
+        <h1>Liste des patients</h1>
+        <form action="search.php" method="GET">
+            <input type="text" name="query" placeholder="Rechercher..." required>
+            <button type="submit">Rechercher</button>
+        </form>
+    </div>
 
     <ol>
         <?php
@@ -44,22 +50,27 @@ try {
                 <br>
                 <?php
                 foreach ($appointments as $appointment) {
-                    if($appointment['idPatients'] === $patient['id']){
+                    if ($appointment['idPatients'] === $patient['id']) {
                 ?>
-                  <a href="./rendezvous.php?id= <?= $patient["id"]; ?>">  <p>Rendez vous le <?= $appointment['dateHour']; ?></p>
+                        <a href="./rendezvous.php?id= <?= $patient["id"]; ?>">
+                            <p>Rendez vous le <?= $appointment['dateHour']; ?></p>
             </li>
-    <?php
+<?php
                     }
                 }
             }
 
-    ?>
+?>
     </ol>
 
 
     <a href="./ajout-patient.php">Ajouter des patients</a>
     <br>
+    <br>
     <a href="ajout-rendezvous.php">Créé un rendez-vous</a>
+    <br>
+    <br>
+    <a href="supprimerPatient.php">Supprimer un patient</a>
 </body>
 
 </html>

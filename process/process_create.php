@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['valider'])) {
     
     $insertPatient = $pdo->prepare('INSERT INTO patients(lastname, firstname, birthdate, phone, mail) VALUES(?,?, ?, ?, ?)');
     $insertPatient->execute(array($lastname, $firstname, $birthdate, $phone, $mail));
-    
+
     }
 
 ?>
