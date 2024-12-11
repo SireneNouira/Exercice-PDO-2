@@ -18,7 +18,7 @@ if (isset($_GET['query'])) {
 } else {
     $results = [];
 }
-?>
+?> 
 
 <!DOCTYPE html>
 <html lang="en">

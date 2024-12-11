@@ -36,32 +36,35 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Modifier le Rendez-vous</title>
+    <link rel="stylesheet" href="rdvstyles.css">
 </head>
+
 <body>
 
-    <h1>Informations du rendez-vous de <?= $patient['lastname'] . ' ' . $patient['firstname']; ?> </h1>
+    <h1>Informations du rendez-vous de <?= htmlspecialchars($patient['lastname'] . ' ' . $patient['firstname']); ?> </h1>
 
-<p>Rendez-vous le <?= $rdv['dateHour'];?></p>
+    <?php if ($rdv) { ?>
+    <p><strong>Rendez-vous actuel :</strong> <?= htmlspecialchars($rdv['dateHour']); ?></p>
+    <?php } else { ?>
+    <p class="message">Aucun rendez-vous trouvé pour ce patient.</p>
+    <?php } ?>
 
+    <h1>Modifiez le rendez-vous</h1>
 
-<h2>Modifiez le rendez-vous</h2>
-
-<form action="" method="post">
-
+    <form action="" method="post">
         <label for="dateHour">Date et heure :</label>
         <input type="datetime-local" id="dateHour" name="dateHour" required>
         <br><br>
-        
 
-        <button type="submit" name='valider'>Confirmez le nouveau rendez-vous</button>
+        <button type="submit" name="valider">Confirmez le nouveau rendez-vous</button>
     </form>
 
-
-
 </body>
+
 </html>

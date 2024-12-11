@@ -29,36 +29,38 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['valider'])) {
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Créer un rendez-vous</title>
+    <link rel="stylesheet" href="ajoutrdvstyles.css">
 </head>
 
 <body>
+
+    <h1>Créer un rendez-vous</h1>
+
     <form action="" method="post">
-        <label for="dateHour">Date et heure :</label>
+        <label for="dateHour">Date et heure du rendez-vous :</label>
         <input type="datetime-local" id="dateHour" name="dateHour" required>
         <br><br>
 
-        <label for="idPatients">Patient :</label>
+        <label for="idPatients">Sélectionnez un patient :</label>
         <select id="idPatients" name="idPatients" required>
-
             <option value="">Sélectionnez un patient</option>
-
-            <?php foreach ($patients as $patient){ ?>
-
+            <?php foreach ($patients as $patient) { ?>
                 <option value="<?= htmlspecialchars($patient['id']); ?>">
-                    <?= htmlspecialchars($patient['firstname']); ?>
+                    <?= htmlspecialchars($patient['firstname']) . ' ' . htmlspecialchars($patient['lastname']); ?>
                 </option>
             <?php } ?>
         </select>
         <br><br>
 
-        <button type="submit" name='valider'>Créer le rendez-vous</button>
+        <button type="submit" name="valider">Créer le rendez-vous</button>
     </form>
+
 </body>
 
 </html>
